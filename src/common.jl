@@ -10,13 +10,13 @@ function solve(
     prob::DiffEqBase.AbstractDAEProblem{uType,duType,tupType,isinplace},
     alg::DASSLDAEAlgorithm,args...;timeseries_errors=true,
     abstol=1e-5,reltol=1e-3,dt = 1e-4, dtmin = 0.0, dtmax = Inf,
-    callback=nothing,kwargs...) where {uType,duType,tupType,isinplace}
+    kwargs...) where {uType,duType,tupType,isinplace}
 
     tType = eltype(tupType)
 
-    if callback != nothing || prob.callback != nothing
-        error("DASSL is not compatible with callbacks.")
-    end
+    #if callback != nothing || prob.callback != nothing
+    #    error("DASSL is not compatible with callbacks.")
+    #end
 
     tspan = [prob.tspan[1],prob.tspan[2]]
 
@@ -43,7 +43,7 @@ function solve(
                                 maxorder=alg.maxorder,
                                 factorize_jacobian=alg.factorize_jacobian)
 
-    println("dus = $dus")
+    #println("dus = $dus")
     #=
     timeseries = Vector{uType}(0)
     if typeof(prob.u0)<:Number
