@@ -43,7 +43,7 @@ function solve(
                                 maxorder=alg.maxorder,
                                 factorize_jacobian=alg.factorize_jacobian)
 
-    println("dus = $dus")
+    #println("dus = $dus")
     #=
     timeseries = Vector{uType}(0)
     if typeof(prob.u0)<:Number
